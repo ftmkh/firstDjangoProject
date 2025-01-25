@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <link rel="icon" href="images/favicon.png" type="image/gif" />
+
+  <title>Shapel</title>
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap2.css' %}" />
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap" rel="stylesheet" />
+
+  <!-- font awesome style -->
+  <link href="{% static 'css/font-awesome.min2.css' %}" rel="stylesheet" />
+  <!-- Custom styles for this template -->
+  <link href="{% static 'css/style2.css' %}" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="{% static 'css/responsive2.css' %}" rel="stylesheet" />
+
+</head>
+
+<body>
+
+  <!-- header section strats -->
+  <header class="header_section innerpage_header">
+    <div class="container-fluid">
+      <nav class="navbar navbar-expand-lg custom_nav-container">
+        <a class="navbar-brand" href="index.html">
+          <span>
+            Shapel
+          </span>
+        </a>
+        <div class="" id="">
+
+          <div class="custom_menu-btn">
+            <button onclick="openNav()">
+              <span class="s-1"> </span>
+              <span class="s-2"> </span>
+              <span class="s-3"> </span>
+            </button>
+            <div id="myNav" class="overlay">
+              <div class="overlay-content">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="service.html">Service</a>
+                <a href="blog.html">Blog</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <!-- end header section -->
+
+
+  <!-- blog section -->
+
+  <section class="blog_section layout_padding">
+    <div class="container-fluid">
+      <div class="heading_container">
+        <h2>
+          Latest Blog
+        </h2>
+      </div>
+       {% for post in posts %}
+
+      <div class="row">
+          <div class="box">
+            <div class="img-box">
+              <img src="{{ post.image.url }}" width="600px" >
+            </div>
+            <div class="detail-box">
+              <h5>
+                  {{post.title}}
+              </h5>
+              <p>
+                  {{post.content | truncatechars:150}}
+              </p>
+                <em>{{post.author}}</em><br>
+                <em>{{post.published_date}}</em><br>
+              <a href="blogs/{{post.title}}">
+                Read More
+              </a>
+            </div>
+          </div>
+
+      </div>
+        {% endfor %}
+    </div>
+
+  </section>
+
+  <!-- end blog section -->
+
+ <!--  footer -->
+      <footer>
+         <div class="footer">
+            <div class="container">
+               <div class="row">
+                  <div class="col-md-7">
+                     <div class="row">
+                        <div class="col-lg-6 col-md-12">
+                           <div class="hedingh3 text_align_left">
+                              <h3>About</h3>
+                              <p> Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable sourc</p>
+                           </div>
+                        </div>
+                        <div class="col-lg-6 col-md-12">
+                           <div class="hedingh3 text_align_left">
+                              <h3>Blog</h3>
+                              <p>Which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anythin</p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-md-5">
+                     <div class="row">
+                        <div class="col-lg-6 col-md-12">
+                           <div class="hedingh3 text_align_left">
+                              <h3>Menu</h3>
+                              <ul class="menu_footer">
+                                 <li><a href="index.html">Home</a></li>
+                                 <!-- <li><a href="about.html">About</a></li> -->
+                                 <li><a href="{% url 'maktab7app:blogs' %}">Service</a></li>
+                                 <li><a href="{% url 'maktab7app:blogs' %}">Blog</a></li>
+                                 <li><a href="contact.html">Contact us</a></li>
+                              </ul>
+                           </div>
+                        </div>
+                        <div class="col-lg-6 col-md-12">
+                           <div class="hedingh3  text_align_left">
+                              <h3>Newsletter</h3>
+                              <form id="colof" class="form_subscri">
+                                 <input class="newsl" placeholder="Email" type="text" name="Email">
+                                 <button class="subsci_btn">Subscribe</button>
+                              </form>
+                              <ul class="top_infomation">
+                                 <li><i class="fa fa-phone" aria-hidden="true"></i>
+                                    +01 1234567890
+                                 </li>
+                                 <li><i class="fa fa-envelope" aria-hidden="true"></i>
+                                    <a href="Javascript:void(0)">demo@gmail.com</a>
+                                 </li>
+                              </ul>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="copyright">
+               <div class="container">
+                  <div class="row">
+                     <div class="col-md-12">
+                        <div class="follow text_align_center">
+                           <h3>Follow Us</h3>
+                           <ul class="social_icon ">
+                              <li><a href="Javascript:void(0)"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                              <li><a href="Javascript:void(0)"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                              <li><a href="Javascript:void(0)"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                              <li><a href="Javascript:void(0)"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                           </ul>
+                        </div>
+                     </div>
+                     <div class="col-md-12">
+                        <p>© 2020 All Rights Reserved. Design by <a href="https://html.design/"> Free html Templates</a></p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </footer>
+      <!-- end footer -->
+      <!-- Javascript files-->
+      <script src="{% static 'js/jquery.min.js' %}"></script>
+      <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+      <script src="{% static 'js/jquery-3.0.0.min.js' %}"></script>
+      <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+      <script src="{% static 'js/bootstrap-datepicker.min.js' %}"></script>
+      <script src="{% static 'js/custom.js' %}"></script>
+   </body>
+</html>

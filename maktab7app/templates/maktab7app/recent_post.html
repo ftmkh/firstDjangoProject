@@ -1,0 +1,16 @@
+<!-- recent_post.html -->
+       {% for post in latest_posts %}
+
+               <div class=" col-md-4">
+                  <div class="latest">
+                     <figure><img src="{{ post.image.url }}" alt="#"/></figure>
+                     <span class="yellow">{{post.published_date}}</span>
+                     <div class="nostrud">
+                        <h3>{{post.title}}</h3>
+                        <p> {{post.content | truncatechars:30}}</p>
+                       <p><a href="{{post.author}}"> author : {{post.author }}</a></p>
+                        <a class="read_more" href="blogs/{{post.title}} ">Read More</a>
+                     </div>
+                  </div>
+               </div>
+      {% endfor %}
