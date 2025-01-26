@@ -29,6 +29,11 @@ def single_blog(request,title):
             comment = form.save(commit=False)
             comment.post = post
             comment.save()
+    else:
+        form = CommentForm()
+        '''if request.user.is_authenticated:
+            form.fields['name'].initial = request.user.get_full_name()  # or request.user.username
+            form.fields['email'].initial = request.user.email'''
     return render(request,'maktab7app/single_blog.html', {
     'post': post,
     'comments': comments,
