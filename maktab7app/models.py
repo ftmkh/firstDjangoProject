@@ -10,6 +10,7 @@ class Post(models.Model):
     image = models.ImageField(default='default.png')
     author = models.CharField(max_length=250)
     created_at = DateTimeField(default=timezone.now , editable=False)
+    login_require = models.BooleanField(default=False)
     published_date = DateTimeField(default=timezone.now )
     status = models.BooleanField(default=False)
 

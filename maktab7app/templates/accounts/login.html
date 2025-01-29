@@ -35,6 +35,29 @@
               <h3>Login to <strong>MY SITE</strong></h3>
               <!-- <p class="mb-4">Lorem ipsum dolor sit amet elit. Sapiente sit aut eos consectetur adipisicing.</p> -->
               </div>
+
+
+<!-- templates/accounts/login.html -->
+
+<h2>Log In</h2>
+<form action="{% url 'accounts:login' %}" method="post">
+    {% csrf_token %}
+    {{ form.non_field_errors }}
+    <div>
+        <label >Username:</label>
+        {{ form.username }}
+        {{ form.username.errors }}
+    </div>
+    <div>
+        <label >Password:</label>
+        {{ form.password }}
+        {{ form.password.errors }}
+    </div>
+    <button type="submit">Log In</button>
+</form>
+
+
+              <!--
               <form action="{% url 'accounts:login' %}" method="post">
                  {% csrf_token %}
                 <div class="form-group first">
@@ -57,6 +80,7 @@
                 <input type="submit" value="Log In" class="btn btn-block btn-primary">
 
               </form>
+              -->
             </div>
           </div>
         </div>
