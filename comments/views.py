@@ -7,7 +7,8 @@ def add_comment(request , post_pid):
     if request.method =="POST":
         post = get_object_or_404(Post , id=post_pid)
         comment =Comments(post=post ,
-                          name=request.POST['subject'],
+                          email = request.POST['email'],
+                          subject=request.POST['subject'],
                           body=request.POST['body'])
         comment.save()
         return redirect('/',pk=post.id)

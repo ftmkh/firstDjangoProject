@@ -27,6 +27,7 @@ def bolgs(request,author=None):
     #return render(request, 'maktab7app/single_blog.html', {'post': post})
     if request.method == "POST":
         form = CommentForm(request.POST)
+<<<<<<< HEAD
         if not post.login_require:
             if form.is_valid():
                 comment = form.save(commit=False)
@@ -34,6 +35,17 @@ def bolgs(request,author=None):
                 comment.save()
         else:
             return redirect('accounts/login')
+=======
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.post = post
+            comment.save()
+    else:
+        form = CommentForm()
+        '''if request.user.is_authenticated:
+            form.fields['name'].initial = request.user.get_full_name()  # or request.user.username
+            form.fields['email'].initial = request.user.email'''
+>>>>>>> 7f47bf3287eead18b8bd39d3c9ded968cf1be8e5
     return render(request,'maktab7app/single_blog.html', {
     'post': post,
     'comments': comments,
